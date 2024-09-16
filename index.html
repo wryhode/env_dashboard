@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://127.0.0.1:8081/style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>Pumpehuset</title>
+</head>
+<body>
+    <div id="titleBar">
+        <h1>WiFi måler navn ting</h1>
+    </div>
+    <p id="loading">Henter data...</p>
+    
+    <div id="container">
+        <div id="mainData" class="section">
+            <h2>Akkurat nå:</h2>
+            <div class="mainDivider">
+                <div class="mainDataDiv" id="mainTempDiv">
+                    <h3>Temperatur</h3>
+                    <p class="readout" id="tempNow">--.-</p>
+                </div>
+                <div class="mainDataDiv" id="mainHumDiv">
+                    <h3>Fuktighet</h3>
+                    <p class="readout" id="humNow">--.-</p>
+                </div>
+            </div>
+        </div>
+        
+        <div id="history" class="section">
+            <h2>Historisk:</h2>
+            <div class="historyDivider">
+                <div class="historyDiv" id="tempHistoryDiv">
+                    <h3>Temperatur</h3>
+                    <canvas id="tempCanvas"></canvas>
+                </div>
+                <div class="historyDiv" id="humHistoryDiv">
+                    <h3>Fuktighet</h3>
+                    <canvas id="humCanvas"></canvas>
+                </div>
+            </div>
+        </div>        
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="http://127.0.0.1:8081/script.js"></script>
+</body>
+</html>
