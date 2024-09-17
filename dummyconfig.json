@@ -1,0 +1,8 @@
+{
+    "stationName":"Pumpehuset",
+    "wifiMode":0,
+    "ip":"172.0.0.1",
+    "sensorInterval":30000,
+    "conversionFactor":1,
+    "conversionConstant":0
+}

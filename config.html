@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>WiFi Env Dashboard</title>
+</head>
+<body>
+    <div id="titleBar">
+        <h1 id="title">WiFi Env Dashboard</h1>
+        <a href="./">Tilbake til dashbord</a>
+    </div>
+    <!-- <p id="loading">Henter data...</p> -->
+
+    <div id="container">
+        <form action="./test">
+            <section class="confSection">
+                <h2>Stasjon</h2>
+                <p>Navn</p>
+                <input type="text" name="stationName" id="stationName" maxlength="25">
+            </section>
+            <section class="confSection">
+                <h2>Nettverk</h2>
+                <p>WiFi modus:</p>
+                <input type="radio" name="wifimode" id="wifiSta" checked="checked"><label>STA</label>
+                <input type="radio" name="wifimode" id="widiAp"><label>AP</label>
+
+                <p>IP-addresse:</p>
+                <input type="text" name="ip" id="ipAddress" minlength="7" maxlength="15" size="15" pattern="^(?>(\d|[1-9]\d{2}|1\d\d|2[0-4]\d|25[0-5])\.){3}(?1)$" placeholder="xxx.xxx.xxx.xxx">
+            </section>
+            <section class="confSection">
+                <h2>Sensor</h2>
+                <p>Målingsintervall (sekunder)</p>
+                <input type="number" name="sensorInterval" id="sensorInterval" placeholder="30">
+
+                <p>Korrigeringsfaktor</p>
+                <input type="number" name="conversionFactor" id="conversionFactor" placeholder="1">
+
+                <p>Korrigeringskonstant</p>
+                <input type="number" name="conversionConstant" id="conversionConstant" placeholder="0">
+            </section>
+
+            <button type="submit" id="saveButton">Lagre konfigurasjon</button>
+        </form>
+
+        <section>
+            <h1>Testinstillinger</h1>
+            <button id="clearLocalStorage">Tøm localStorage</button>
+        </section>
+    </div>
+
+    <script src="./config_s.js"></script>
+</body>
+</html>

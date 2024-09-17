@@ -21,6 +21,18 @@ body {
     margin: 0px;
 }
 
+input {
+    width: 12rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 1px solid black;
+    border-radius: 0px;
+}
+
+button {
+    border: 1px solid black;
+    border-radius: 0px;
+}
+
 .section {
     width: 100%;
 }
@@ -60,6 +72,12 @@ body {
 
     position: sticky;
     top: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin: 0px;
 }
 
 #titleBar h1 {
@@ -67,6 +85,32 @@ body {
     padding: 1rem;
 }
 
+#titleBar a {
+    height: 100%;
+    /*margin: 1rem;*/
+    padding: 2rem;
+    background-color: transparent;
+    color: var(--fg);
+}
+
+#titleBar a:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: var(--fg);
+}
+
 #container {
     margin: 1rem;
+}
+
+#saveButton {
+    background-color: var(--bg);
+    color: var(--fg);
+    margin-top: 2rem;
+    padding: 1rem;
+    font-size: 1rem;
+}
+
+#saveButton:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: var(--fg);
 }

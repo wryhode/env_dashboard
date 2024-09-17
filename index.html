@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="http://127.0.0.1:8081/style.css">
+    <link rel="stylesheet" href="./style.css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <title>Pumpehuset</title>
+    <title>WiFi Env Dashboard</title>
 </head>
 <body>
     <div id="titleBar">
-        <h1>WiFi måler navn ting</h1>
+        <h1 id="title">WiFi Env Dashboard</h1>
+        <a href="./config.html">Konfigurasjonspanel</a>
     </div>
     <p id="loading">Henter data...</p>
     
@@ -43,7 +44,6 @@
         </div>        
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="http://127.0.0.1:8081/script.js"></script>
+    <script src="./loader.js"></script>
 </body>
 </html>

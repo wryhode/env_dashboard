@@ -1,28 +1,43 @@
 // Loading element
 const el_loading = document.getElementById("loading");
 
-// Get sensor data from device
-async function getSensor() {
-    const url = "../final/dummyresponse.json";
+async function getJSON(url) {
     try {
         const response = await fetch(url);
         if (!response.ok) {
-            el_loading.innerHTML = "Kunne ikke hente data";
             throw new Error(`Response status: ${response.status}`);
         }
   
-        el_loading.remove();
+        return await response.json();
 
-        const json = await response.json();
-
-        updateJustNow(json["current"]["temperature"], json["current"]["humidity"])
-
-        drawChart(canvas_temperature, json["history"]["temperature"], "Temperatur", "#5ff420", json["interval"]);
-        drawChart(canvas_humidity, json["history"]["humidity"], "Fuktighet", "#3bb4f4", json["interval"]);
-    
     } catch (error) {
         console.error(error.message);
     }
+}
+
+const el_title = document.getElementById("title");
+
+// Get sensor data from device
+async function getSensor() {
+    el_loading.innerHTML = "Kunne ikke hente data";
+
+    const json = await getJSON("/dummyresponse.json");
+    
+    el_loading.remove();
+
+    updateJustNow(json["current"]["temperature"], json["current"]["humidity"])
+
+    drawChart(canvas_temperature, json["history"]["temperature"], "Temperatur", "#5ff420", json["interval"]);
+    drawChart(canvas_humidity, json["history"]["humidity"], "Fuktighet", "#3bb4f4", json["interval"]);
+}
+
+var sensorInterval = 1000;
+
+async function getStationData() {
+    const json = await getJSON("/dummyconfig.json");
+
+    el_title.innerHTML = json["stationName"];
+    document.title = json["stationName"];
 }
 
 // Get canvas related elements
@@ -99,4 +114,5 @@ function updateJustNow(temperature, humidity) {
 }
 
 setCanvasSize();
+getStationData();
 getSensor();
